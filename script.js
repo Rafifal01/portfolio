@@ -8,14 +8,6 @@ const reposToShow = [
   "portfolio"
 ];
 
-const liveDemoMap = {
-  "bikesharing-SARIMA": "https://github.com/Rafifal01/bikesharing-SARIMA",
-  "Transjakarta_Analysis": "https://github.com/Rafifal01/Transjakarta_Analysis",
-  "studentapp": "https://github.com/Rafifal01/studentapp",
-  "Tokopedia-SentimentAnalysis": "https://github.com/Rafifal01/Tokopedia-SentimentAnalysis",
-  "portfolio": "https://rafifal01.github.io/portfolio"
-};
-
 const GITHUB_TOKEN = null;
 
 function el(tag, cls) {
@@ -43,28 +35,22 @@ function createCard(repo) {
   const card = el("div", "project-card");
   const title = el("h3"); title.textContent = repo.name;
   const desc = el("p"); desc.textContent = repo.description || "No description provided.";
+
   const meta = el("div", "project-meta");
   const lang = el("span","badge"); lang.textContent = repo.language || "—";
   const stars = el("span"); stars.innerHTML = `⭐ ${repo.stargazers_count}`;
   const updated = el("span"); updated.textContent = `Updated: ${formatDate(repo.updated_at)}`;
-
   meta.appendChild(lang);
   meta.appendChild(stars);
   meta.appendChild(updated);
 
   const links = el("div","project-links");
-  const codeA = el("a"); codeA.href = repo.html_url; codeA.target = "_blank"; codeA.rel="noopener"; codeA.textContent = "View Code";
+  const codeA = el("a");
+  codeA.href = repo.html_url;
+  codeA.target = "_blank";
+  codeA.rel = "noopener";
+  codeA.textContent = "View Code";
   links.appendChild(codeA);
-
-  const live = liveDemoMap[repo.name];
-  if(live){
-    const liveA = el("a","secondary");
-    liveA.href = live;
-    liveA.target = "_blank";
-    liveA.rel = "noopener";
-    liveA.textContent = "Live Demo";
-    links.appendChild(liveA);
-  }
 
   card.appendChild(title);
   card.appendChild(desc);
@@ -103,9 +89,8 @@ async function renderProjects() {
     note.textContent = `Menampilkan ${found.length} repositori dari GitHub (${githubUsername}).`;
   } catch (err) {
     console.error(err);
-    note.textContent = "Gagal memuat data dari GitHub. Coba lagi nanti atau gunakan GitHub token.";
+    note.textContent = "Gagal memuat data dari GitHub. Coba lagi nanti.";
   }
 }
 
-// Run
 renderProjects();
