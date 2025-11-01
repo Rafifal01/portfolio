@@ -21,7 +21,7 @@ Passionate about turning data into insights and building end-to-end projects foc
 ✅ Responsive portfolio website  
 ✅ Auto-fetch GitHub repositories using GitHub API  
 ✅ Dynamic project section (name, description, stars, language, last update)  
-✅ "View Code" & "Live Demo" buttons  
+✅ View Code Button 
 ✅ No framework required (pure HTML/CSS/JS)  
 ✅ Easy to deploy via GitHub Pages, Vercel, or Netlify  
 
