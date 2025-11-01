@@ -60,7 +60,6 @@ The project section is generated dynamically using JavaScript:
    - ⏳ Last updated date  
 3. Links are added automatically:
    - `View Code` → GitHub repository
-   - `Live Demo` → Project URL (if exists)
 
 To customize which repos get displayed, edit this array inside `script.js`:
 
